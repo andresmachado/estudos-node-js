@@ -13,9 +13,8 @@ var server = http.createServer(function(request, response){
         throw (err);
       }else{
         response.writeHead(200, {"Content-Type": "text/html"})/
-        response.write(html);
+        response.end(html);
       }
-      response.end();
     })
   } else if(pathname === "/artigos.html" || pathname === "/"){
     fs.readFile(__dirname + "/artigos.html", function(err, html){
@@ -25,9 +24,8 @@ var server = http.createServer(function(request, response){
         throw (err);
       }else {
         response.writeHead(200, {"Content-Type": "text/html"});
-        response.write(html);
+        response.end(html);
       }
-      response.end();
     })
   } else {
     fs.readFile(__dirname + "/erro.html", function(err, html){
@@ -37,9 +35,8 @@ var server = http.createServer(function(request, response){
         throw (err);
       }else {
         response.writeHead(200, {"Content-Type": "text/html"});
-        response.write(html);
+        response.end(html);
       }
-      response.end();
     })
   }
 });
